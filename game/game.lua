@@ -37,9 +37,13 @@ function draw_game()
   
   draw_heart()
   
-  for i, t in pairs(touches) do
-    add_log(i .. " : " .. t.x .. ", " .. t.y)
-  end
+  -- for i, t in pairs(touches) do
+    -- add_log(i .. " : " .. t.x .. ", " .. t.y)
+  -- end
+  
+  local cl = click()
+  
+  if cl then add_log(click .. " : " .. cl.x .. ", " .. cl.y) end
   
   use_font("log")
   print_log()
@@ -114,7 +118,13 @@ function update_touches()
   
 end
 
+function click()
 
+
+  return btn("select") and {x = btnv("mouse_x"), y = btnv("mouse_y") } or
+        (count(touches) == 1 and touches[1])
+
+end
 
 
 
