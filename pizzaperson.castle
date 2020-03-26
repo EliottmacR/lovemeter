@@ -1,0 +1,9 @@
+---
+main: main.lua
+title: PizzaPerson
+owner: spaceling
+primaryColor: f7cf4c
+dimensions: full
+coverImage: preview.png
+draft: false
+description: Are YOU the Pizza Person ? Beat your friends in this hectic battle for the highest score ! The cheese is lactose free and the the meat is meat free.
