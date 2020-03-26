@@ -43,7 +43,7 @@ function draw_game()
   
   local cl = click()
   
-  if cl then add_log("click : " .. cl.x .. ", " .. cl.y) end
+  if cl then add_log(count(touches) .. " : " .. cl.x .. ", " .. cl.y) end
   
   use_font("log")
   print_log()
