@@ -69,8 +69,6 @@ end
 ----------- Heart
 
 
-
-
 function init_heart()
 
   heart = {}
@@ -103,16 +101,7 @@ end
 function update_touches()
 
 
-
-
-
   tch = love.touch.getTouches( )
-  -- xs = {}
-  -- ys = {}
-  -- for i = 1, #touches do
-    -- ys[i], xs[i] = love.touch.getPosition( touches[i] )
-    -- xs[i] = GW - xs[i]
-  -- end
   
   touches = {}
   
