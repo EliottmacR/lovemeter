@@ -85,7 +85,8 @@ function update_heart()
 
   heart.hover = m_in_rect(heart.x, heart.y, heart.w, heart.h)
   heart.clicked = btnp("c") and heart.hover 
-  if heart.clicked then lm.count = lm.count + 1 end
+  -- if heart.clicked then lm.count = lm.count + 1 end
+  if btnp("c") then lm.count = lm.count + 1 end
 end
 
 function draw_heart()
