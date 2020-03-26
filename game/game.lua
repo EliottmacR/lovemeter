@@ -87,6 +87,7 @@ function update_heart()
   heart.clicked = btnp("c") and heart.hover 
   -- if heart.clicked then lm.count = lm.count + 1 end
   if btnp("c") then lm.count = lm.count + 1 end
+  
 end
 
 function draw_heart()
@@ -135,13 +136,19 @@ function draw_lm()
   use_font("32")
   
   local str = count_to_str(lm.count)
+  -- local str = count_to_str(irnd(10000000))
   
   -- add_log(lm.count)
   
   -- print(lm.count, 0, 0)
-  print(str, 0, 0)
-
   
+  local sw = str_width(str)
+  local sh = str_height(str)
+  
+  local sx = GW/2
+  local sy = GH/7
+  
+  print(str, sx - sw/2, sy - sh/2, _p_n("pink"))
 
 end
 
