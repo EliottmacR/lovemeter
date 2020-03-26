@@ -122,7 +122,7 @@ function click()
 
 
   return btn("select") and {x = btnv("mouse_x"), y = btnv("mouse_y") } or
-        (count(touches) == 1 and touches[1])
+        (count(touches) == 1 and touches[1] or nil)
 
 end
 
