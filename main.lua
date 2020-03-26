@@ -38,14 +38,14 @@ end
 
 function love.draw()
   
-  love.graphics.push()
-  love.graphics.translate(GW/2, GH/2)
-  love.graphics.rotate(-pi/2) 	
-  love.graphics.translate(-GH/2, -GW/2)
+  -- love.graphics.push()
+  -- love.graphics.translate(GW/2, GH/2)
+  -- love.graphics.rotate(-pi/2) 	
+  -- love.graphics.translate(-GH/2, -GW/2)
   
   draw_game()
     
-  love.graphics.pop()
+  -- love.graphics.pop()
   
 end
 
