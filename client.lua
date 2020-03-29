@@ -1,9 +1,4 @@
 
-require("sugarcoat/sugarcoat")
-sugar.utility.using_package(sugar.S, true)
-
-zoom = 2
-
 if CASTLE_PREFETCH then
   CASTLE_PREFETCH({
     "game/nnetwork.lua",
@@ -11,6 +6,12 @@ if CASTLE_PREFETCH then
 else
   require("game/nnetwork")
 end
+
+require("sugarcoat/sugarcoat")
+sugar.utility.using_package(sugar.S, true)
+
+zoom = 2
+
 
 start_client(8)
 

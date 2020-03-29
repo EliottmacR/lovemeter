@@ -1,16 +1,17 @@
 
-require("sugarcoat/sugarcoat")
-sugar.utility.using_package(sugar.S, true)
-
--- zoom = 2
-
 if CASTLE_PREFETCH then
   CASTLE_PREFETCH({
     "game/nnetwork.lua",
+    "game/game.lua",
   })
 else
   require("game/nnetwork")
 end
+
+require("sugarcoat/sugarcoat")
+sugar.utility.using_package(sugar.S, true)
+
+-- zoom = 2
 
 start_server(8)
 
@@ -20,14 +21,8 @@ require("game/random_functions")
 
 function server.load()
   IS_SERVER = true
-
-  -- GH = love.graphics.getHeight()/zoom
-  -- GW = love.graphics.getWidth()/zoom
-
   init_sugar("? Are you the pizza person ?", 128, 128, 2 )
 
-  -- set_frame_waiting(30)
-  
   love.math.setRandomSeed(os.time())
   love.mouse.setVisible(true)
   
