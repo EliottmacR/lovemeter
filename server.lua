@@ -29,13 +29,18 @@ function server.load()
   
   init_game()
   initialized = true
+  
+  loged = 0
+  
 end
 
 function server.update(dt)
   if not initialized then return end
 
   if ROLE then server.preupdate(dt) end
-
+  
+  if t() > loged * 2 then loged = loged + 1 log("log") end
+  
   update_game(dt)
   
   if ROLE then server.postupdate(dt) end
