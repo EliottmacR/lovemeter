@@ -99,7 +99,14 @@ function love.keyreleased(key)
     local oldraw = love.draw
 
     love.keyreleased = nil
-    require("server")
+    
+    if network then
+      network.async(function()
+        require("server")
+      end)
+    else
+      require("server")
+    end
     start_server()
     
     catch_logs(get_logs)
@@ -108,7 +115,14 @@ function love.keyreleased(key)
     love.graphics.setFont(love.graphics.newFont("sugarcoat/TeapotPro.ttf", 32))
   elseif key == '2' then
     love.keyreleased = nil
-    require("client")
+    
+    if network then
+      network.async(function()
+        require("client")
+      end)
+    else
+      require("client")
+    end
     start_client()
   end
 end
