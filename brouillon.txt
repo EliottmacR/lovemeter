@@ -40,6 +40,57 @@ two things. lovemeter and lovegenerator
 
 
 
+client clicks and send the number of global clicks he did.
+
+
+server compares that number with the previous he had. if > then update
+
+
+server always returns to player the global_count - his clicks.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
