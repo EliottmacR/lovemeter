@@ -1,11 +1,11 @@
 
-if CASTLE_PREFETCH then
-  CASTLE_PREFETCH({
-    "game/nnetwork.lua",
-  })
-else
-  require("game/nnetwork")
-end
+-- if CASTLE_PREFETCH then
+  -- CASTLE_PREFETCH({
+    -- "game/nnetwork.lua",
+  -- })
+-- else
+  -- require("game/nnetwork")
+-- end
 
 require("sugarcoat/sugarcoat")
 sugar.utility.using_package(sugar.S, true)
@@ -13,6 +13,7 @@ sugar.utility.using_package(sugar.S, true)
 zoom = 2
 
 
+require("game/nnetwork")
 start_client(8)
 
 require("game/game")  -- where all the fun happens
