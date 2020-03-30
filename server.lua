@@ -1,17 +1,7 @@
-
--- if CASTLE_PREFETCH then
-  -- CASTLE_PREFETCH({
-    -- "game/nnetwork.lua",
-    -- "game/game.lua",
-  -- })
--- else
-  -- require("game/nnetwork")
--- end
+SUGAR_SERVER_MODE = true
 
 require("sugarcoat/sugarcoat")
 sugar.utility.using_package(sugar.S, true)
-
--- zoom = 2
 
 require("game/nnetwork")
 start_server(8)
@@ -39,7 +29,10 @@ function server.update(dt)
 
   if ROLE then server.preupdate(dt) end
   
-  if t() > loged * 2 then loged = loged + 1 log("log") end
+  -- if t() > loged * 2 then 
+    -- loged = loged + 1 
+    -- log("log") 
+  -- end
   
   update_game(dt)
   

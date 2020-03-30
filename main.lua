@@ -67,11 +67,7 @@ function love.load(args)
     love.event.push("keyreleased", '1')
   elseif args[1] == "client" then
     love.event.push("keyreleased", '2')
-  
-  end
-  
-  log("here")
-  
+  end  
 end
 
 function love.draw()
