@@ -155,7 +155,7 @@ do
                     local id = peerToId[event.peer]
                     if id then
                         local request = marshal.decode(event.data)
-
+                        _SID = request.sessionToken
                         -- Session token?
                         if request.sessionToken then
                             idToSessionToken[id] = request.sessionToken
