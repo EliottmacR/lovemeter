@@ -117,7 +117,7 @@ do -- client
     -- add_log(client.share[2] or "no client share 2")
     -- add_log(lm.server_count or "no client share 2")
     
-    -- clicks = client.share[3]
+    _SID = client.share[3] or _SID
     -- server_id = client.share[4]
     
   end
@@ -174,6 +174,7 @@ do -- server
     for id,ho in pairs(server.homes) do
       server.share[1][id] = ho[1]
       server.share[2][id] = get_all_clicks() - clicks[id]
+      server.share[3] = _SID
     end
     
     

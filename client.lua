@@ -56,8 +56,8 @@ function client.update(dt)
     end
   end
   
-  if server_id then
-    add_log("server_id : " .. server_id)
+  if _SID then
+    add_log("_SID : " .. _SID)
   end
   
   if ROLE then client.postupdate(dt) end
