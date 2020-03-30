@@ -185,6 +185,8 @@ do -- server
   function server_new_client(id)
     log("New client: #"..id)
     
+    if _SID then log("_SID: ".._SID) end
+    
     clicks = clicks or {}
     
     clicks[id] = 0
