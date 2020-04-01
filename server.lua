@@ -34,6 +34,14 @@ function server.update(dt)
     -- log("log") 
   -- end
   
+  if not logged_db then 
+  
+    network.async(
+  
+  else
+  end
+  
+  
   update_game(dt)
   
   if ROLE then server.postupdate(dt) end

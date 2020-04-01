@@ -166,7 +166,6 @@ do -- server
       end
     end
     
-    
   end
   
   function server_output(id, diff)
@@ -177,15 +176,10 @@ do -- server
       server.share[3] = _SID
     end
     
-    
-    
-    
   end
   
   function server_new_client(id)
     log("New client: #"..id)
-    
-    if _SID then log("_SID: ".._SID) end
     
     clicks = clicks or {}
     

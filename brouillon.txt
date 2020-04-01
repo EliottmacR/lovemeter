@@ -50,10 +50,73 @@ server always returns to player the global_count - his clicks.
 
 
 
+---------------------
+
+
+
+server finds its own id : irnd(pow(10,8))
+
+if id not taken then create pool in db
+
+update every 15 seconds
+
+when last client disconnects, force update of db
+
+when done, get the server_pool to global_pool
+
+delete server_pool
 
 
 
 
+function init_server()
+  
+  db = {}
+  
+  server_meter = 0
+  global_meter = 0
+  server_key = 0
+  global_key = "love"
+  
+  network.async(function
+    
+    global_meter = castle.storage.getGlobal('global_key')
+    global_meter = global_meter or 0
+    castle.storage.setGlobal('global_key', global_meter)
+    
+    server_keys = castle.storage.getGlobal('server_keys')
+    local found = true
+    server_key = rnd(1000000)
+    
+    while not found do
+      found = false
+      if server_keys[server_key] then 
+        found = true 
+        server_key = rnd(1000000)
+      end
+    end
+    
+    castle.storage.setGlobal('server_keys', server_keys)
+    castle.storage.setGlobal(server_key, server_meter )
+    
+  end
+end
+
+
+every 15 seconds : 
+
+function update_meter()
+
+  network.async(function
+   
+    castle.storage.setGlobal(server_key, server_meter)
+    total = castle.storage.getGlobal(global_key)
+    
+    total = total + server_meter
+
+  end
+
+end
 
 
 
