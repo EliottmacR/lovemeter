@@ -30,8 +30,6 @@ function update_game()
   if not IS_SERVER then
     update_heart()
     update_c_lm()
-  else
-    update_s_lm()
   end
   
   update_network()  
@@ -133,12 +131,6 @@ function update_c_lm()
   lm.count = lm.client_count + lm.server_count
   -- add_log(server_id or "no server id received")
   
-end
-
-function update_s_lm()
-
-
-
 end
 
 function draw_lm()

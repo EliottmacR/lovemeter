@@ -146,6 +146,8 @@ do -- client
   
 end
 
+global_key = "love"
+
 do -- server
 
   local clicks
@@ -154,6 +156,35 @@ do -- server
     clicks = {}
     server.share[1] = {}
     server.share[2] = {}
+    
+    server_meter = 0
+    global_meter = 0
+    server_key = 0
+    
+    network.async(function
+      
+      global_meter = castle.storage.getGlobal('global_key')
+      global_meter = global_meter or 0
+      castle.storage.setGlobal('global_key', global_meter)
+      
+      server_keys = castle.storage.getGlobal('server_keys')
+      local found = true
+      server_key = rnd(1000000)
+      
+      while not found do
+        found = false
+        if server_keys[server_key] then 
+          found = true 
+          server_key = rnd(1000000)
+        end
+      end
+      
+      castle.storage.setGlobal('server_keys', server_keys)
+      castle.storage.setGlobal(server_key, server_meter )
+    end
+    
+    server_state = "alphaornot"
+    
     
   end
   
@@ -172,8 +203,8 @@ do -- server
     
     for id,ho in pairs(server.homes) do
       server.share[1][id] = ho[1]
-      server.share[2][id] = get_all_clicks() - clicks[id]
-      server.share[3] = _SID
+      server.share[2][id] = get_all_clicks() - clicks[id] + global_meter
+      server.share[3] = server_key or "no server key"
     end
     
   end
