@@ -118,7 +118,7 @@ do -- client
     -- add_log(lm.server_count or "no client share 2")
     
     _SK = client.share[3] or _SK
-    -- server_id = client.share[4]
+    _SKs = client.share[4] or _SKs
     
   end
   
@@ -173,11 +173,13 @@ do -- server
       
       while not found do
         found = false
-        if server_keys[server_key] then 
+        if is_in (server_key, server_keys) then 
           found = true 
           server_key = rnd(1000000000)
         end
       end
+      
+      add(server_keys, server_key)
       
       castle.storage.setGlobal('server_keys', server_keys)
       castle.storage.setGlobal(server_key, server_meter )    
