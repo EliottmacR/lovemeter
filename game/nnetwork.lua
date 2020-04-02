@@ -113,10 +113,7 @@ do -- client
     if client.share[2] then
       lm.server_count = client.share[2][my_id] or lm.server_count
     end
-    
-    -- add_log(client.share[2] or "no client share 2")
-    -- add_log(lm.server_count or "no client share 2")
-    
+        
     _SK = client.share[3] or _SK
     _SKs = client.share[4] or _SKs
     
@@ -163,8 +160,7 @@ do -- server
     
     network.async(function ()
       
-      global_meter = castle.storage.getGlobal('global_key')
-      global_meter = global_meter or 0
+      global_meter = castle.storage.getGlobal('global_key') or 0
       castle.storage.setGlobal('global_key', global_meter)
       
       server_keys = castle.storage.getGlobal('server_keys') or {}

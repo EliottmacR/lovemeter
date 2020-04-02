@@ -31,10 +31,26 @@ function server.update(dt)
   
   update_network()
   
+  update_data_timer = update_data_timer - dt()
+  
+  if update_data_timer < 0 and not refreshing_data then
+    update_data_timer = 3
+    
+    network.async(function()
+      refreshing_data = true
+      server_keys = castle.storage.getGlobal('server_keys') or {}
+      global_meter = castle.storage.getGlobal('global_key') or 0
+      refreshing_data = false
+    end)
+    
+    
+  end
+  
+  
   if server_state == "alphaornot" then
   
     -- if not doingalphaornot then
-      -- network.async(function
+      -- network.async(function()
         -- doingalphaornot = true
         -- alpha_server = castle.storage.getGlobal("alpha")
         
