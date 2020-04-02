@@ -44,7 +44,7 @@ function draw_game()
   draw_heart()
   draw_lm()
   
-  if _SK then add_print(_SK) end
+  if _SK then add_log(_SK) end
   
   use_font("log")
   print_log()
