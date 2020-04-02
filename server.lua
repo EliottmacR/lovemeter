@@ -21,8 +21,10 @@ function server.load()
   initialized = true
   
   loged = 0
+  update_data_timer = 0
   
 end
+
 
 function server.update(dt)
   if not initialized then return end
