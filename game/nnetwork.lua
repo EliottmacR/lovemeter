@@ -178,7 +178,7 @@ do -- server
       add(server_keys, server_key)
       
       castle.storage.setGlobal('server_keys', server_keys)
-      castle.storage.setGlobal(server_key, server_meter )    
+      castle.storage.setGlobal(tostring(server_key), server_meter )    
       server_state = "alphaornot"
     end)
     
