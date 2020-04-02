@@ -46,6 +46,12 @@ function draw_game()
   
   if _SK then add_log(_SK) end
   
+  if _SKs then 
+    for i, s in pairs(_SKs)
+      add_log(s)
+    end
+  end
+  
   use_font("log")
   print_log()
   

@@ -169,13 +169,13 @@ do -- server
       
       server_keys = castle.storage.getGlobal('server_keys')
       local found = true
-      server_key = rnd(1000000)
+      server_key = rnd( 1000000)
       
       while not found do
         found = false
         if server_keys[server_key] then 
           found = true 
-          server_key = rnd(1000000)
+          server_key = rnd(1000000000)
         end
       end
       
@@ -203,6 +203,7 @@ do -- server
       server.share[1][id] = ho[1]
       server.share[2][id] = get_all_clicks() - clicks[id] + global_meter
       server.share[3] = server_key or "no server key"
+      server.share[4] = server_keys or {}
     end
     
   end
