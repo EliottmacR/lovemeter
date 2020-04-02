@@ -26,10 +26,10 @@ function server.load()
 end
 
 
-function server.update(dt)
+function server.update()
   if not initialized then return end
 
-  if ROLE then server.preupdate(dt) end
+  if ROLE then server.preupdate(dt()) end
   
   update_network()
   
@@ -124,7 +124,7 @@ function server.update(dt)
       
   end  
   
-  if ROLE then server.postupdate(dt) end
+  if ROLE then server.postupdate(dt()) end
 end
 
 
