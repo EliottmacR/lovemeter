@@ -167,7 +167,7 @@ do -- server
       global_meter = global_meter or 0
       castle.storage.setGlobal('global_key', global_meter)
       
-      server_keys = castle.storage.getGlobal('server_keys')
+      server_keys = castle.storage.getGlobal('server_keys') or {}
       local found = true
       server_key = rnd( 1000000)
       
