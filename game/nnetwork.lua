@@ -180,13 +180,11 @@ do -- server
       end
       
       castle.storage.setGlobal('server_keys', server_keys)
-      castle.storage.setGlobal(server_key, server_meter )
-    end
+      castle.storage.setGlobal(server_key, server_meter )    
+      server_state = "alphaornot"
+    end)
     
-    server_state = "alphaornot"
-    
-    
-  end)
+  end
   
   function server_input(id, diff)
     local ho = server.homes[id]
