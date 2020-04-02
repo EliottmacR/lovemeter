@@ -117,7 +117,7 @@ do -- client
     -- add_log(client.share[2] or "no client share 2")
     -- add_log(lm.server_count or "no client share 2")
     
-    _SID = client.share[3] or _SID
+    _SK = client.share[3] or _SK
     -- server_id = client.share[4]
     
   end
@@ -186,7 +186,7 @@ do -- server
     server_state = "alphaornot"
     
     
-  end
+  end)
   
   function server_input(id, diff)
     local ho = server.homes[id]
