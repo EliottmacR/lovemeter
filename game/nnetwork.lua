@@ -21,7 +21,7 @@ do -- General init and update
   
   local network_t = 0
   function update_network()
-    network_t = network_t - dt()
+    network_t = network_t - dt
     if network_t > 0 then
       return
     end
