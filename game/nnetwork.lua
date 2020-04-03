@@ -131,12 +131,16 @@ do -- client
     log("Connected to server!")
     -- variable = "Connected to server!"
     my_id = client.id
+    
   end
   
   function client_disconnect()
     disconnected = true
     
     log("Disconnected from server!")
+    
+    
+    
   end
   
   
@@ -157,30 +161,6 @@ do -- server
     server_meter = 0
     global_meter = 0
     server_key = 0
-    
-    network.async(function ()
-      
-      global_meter = castle.storage.getGlobal('global_key') or 0
-      castle.storage.setGlobal('global_key', global_meter)
-      
-      server_keys = castle.storage.getGlobal('server_keys') or {}
-      local found = true
-      server_key = tostring(rnd(1000000000))
-      
-      while not found do
-        found = false
-        if is_in (server_key, server_keys) then 
-          found = true 
-          server_key = tostring(rnd(1000000000))
-        end
-      end
-      
-      add(server_keys, server_key)
-      
-      castle.storage.setGlobal('server_keys', server_keys)
-      castle.storage.setGlobal(server_key, server_meter )    
-      server_state = "alphaornot"
-    end)
     
   end
   
@@ -212,12 +192,47 @@ do -- server
     clicks = clicks or {}
     
     clicks[id] = 0
+    client_connected = (client_connected or 0) + 1
+    
+    if client_connected == 1 then 
+    
+    end
     
   end
   
   function server_lost_client(id)
     log("Client #"..id.." disconnected.")
-    -- clicks[id] = nil
+    client_connected = client_connected - 1
+    
+    if client_connected == 0 then
+    
+      network.async(function ()
+        
+        global_meter = castle.storage.getGlobal('global_key') or 0
+        castle.storage.setGlobal('global_key', global_meter)
+        
+        server_keys = castle.storage.getGlobal('server_keys') or {}
+        local found = true
+        server_key = tostring(rnd(1000000000))
+        
+        while not found do
+          found = false
+          if is_in (server_key, server_keys) then 
+            found = true 
+            server_key = tostring(rnd(1000000000))
+          end
+        end
+        
+        add(server_keys, server_key)
+        
+        castle.storage.setGlobal('server_keys', server_keys)
+        castle.storage.setGlobal(server_key, server_meter )    
+        server_state = "alphaornot"
+      end)
+    
+    end
+    
+    
   end
   
   function get_all_clicks()
