@@ -44,7 +44,7 @@ function draw_game()
   draw_heart()
   draw_lm()
   
-  if _SK then add_log(_SK) end
+  -- if _SK then add_log(_SK) end
   
   if _SKs then 
     for i, s in pairs(_SKs) do
