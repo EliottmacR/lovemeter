@@ -162,7 +162,7 @@ do -- server
     global_meter = 0
     server_key = 0
     
-    -- network.async(function () castle.storage.setGlobal('server_keys', {}) end)
+    network.async(function () castle.storage.setGlobal('server_keys', {}) end)
     
     
   end
@@ -206,7 +206,7 @@ do -- server
         
         server_keys = castle.storage.getGlobal('server_keys') or {}
         local found = true
-        server_key = tostring(rnd(1000000000))
+        server_key = tostring(rnd(1000000000)) 
         
         while not found do
           found = false
@@ -232,13 +232,13 @@ do -- server
     client_connected = client_connected - 1
     
     if client_connected == 0 then
-    
+      
       network.async(function ()
         
         server_keys = castle.storage.getGlobal('server_keys') or {}
         
         for i, v in pairs(server_keys) do 
-          if v == _SK then 
+          if v == server_key then 
             server_keys[i] = nil
           end
         end
