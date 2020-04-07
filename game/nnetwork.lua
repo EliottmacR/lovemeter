@@ -162,6 +162,9 @@ do -- server
     global_meter = 0
     server_key = 0
     
+    network.async(function () castle.setGlobal('server_keys') = {})
+    
+    
   end
   
   function server_input(id, diff)
