@@ -199,6 +199,30 @@ do -- server
     
     if client_connected == 1 then 
     
+      network.async(function ()
+        
+        global_meter = castle.storage.getGlobal('global_key') or 0
+        castle.storage.setGlobal('global_key', global_meter)
+        
+        server_keys = castle.storage.getGlobal('server_keys') or {}
+        local found = true
+        server_key = tostring(rnd(1000000000))
+        
+        while not found do
+          found = false
+          if is_in (server_key, server_keys) then 
+            found = true 
+            server_key = tostring(rnd(1000000000))
+          end
+        end
+        
+        add(server_keys, server_key)
+        
+        castle.storage.setGlobal('server_keys', server_keys)
+        castle.storage.setGlobal(server_key, server_meter )    
+        server_state = "alphaornot"
+      end)
+    
     end
     
   end
