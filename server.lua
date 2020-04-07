@@ -60,7 +60,7 @@ function server.update()
           alpha_server = castle.storage.getGlobal("alpha")
           
           if not alpha_server then 
-            castle.storage.setGlobal(alpha_server, server_key)
+            castle.storage.setGlobal("alpha", server_key)
           end
           
           server_state = "setcount"
