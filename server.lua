@@ -60,7 +60,7 @@ function server.update()
           server_keys = castle.storage.getGlobal('server_keys') or {}
           alpha_server = castle.storage.getGlobal("alpha")
           
-          if not alpha_server or not is_in(alpha, server_keys) then          
+          if not alpha_server or not is_in(alpha_server, server_keys) then          
             castle.storage.setGlobal("alpha", server_key)
           end
           
