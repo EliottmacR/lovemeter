@@ -215,7 +215,7 @@ do -- server
         
         for i, v in pairs(server_keys) do 
           if v == _SK then 
-            server_keys[i] == nil
+            server_keys[i] = nil
           end
         end
         
