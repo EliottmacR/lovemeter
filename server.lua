@@ -67,7 +67,7 @@ function server.update()
           wait_time = WAIT_TIME_SETCOUNT
           doingalphaornot = false
         end
-      end
+      end)
       
     elseif server_state == "setcount" then
       wait_time = wait_time - dt()
