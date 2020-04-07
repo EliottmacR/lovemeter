@@ -162,7 +162,7 @@ do -- server
     global_meter = 0
     server_key = 0
     
-    network.async(function () castle.storage.setGlobal('server_keys', {}) end)
+    -- network.async(function () castle.storage.setGlobal('server_keys', {}) end)
     
     
   end
@@ -204,7 +204,9 @@ do -- server
         global_meter = castle.storage.getGlobal('global_key') or 0
         castle.storage.setGlobal('global_key', global_meter)
         
-        server_keys = castle.storage.getGlobal('server_keys') or {}
+        -- server_keys = castle.storage.getGlobal('server_keys') or {}
+        server_keys = {}
+        
         local found = true
         server_key = tostring(rnd(1000000000)) 
         
