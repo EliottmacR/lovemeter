@@ -162,7 +162,7 @@ do -- server
     global_meter = 0
     server_key = 0
     
-    network.async(function () castle.storage.setGlobal('server_keys', {}) end)
+    -- network.async(function () castle.storage.setGlobal('server_keys', {}) end)
     
     
   end
