@@ -204,8 +204,8 @@ do -- server
         global_meter = castle.storage.getGlobal('global_key') or 0
         castle.storage.setGlobal('global_key', global_meter)
         
-        -- server_keys = castle.storage.getGlobal('server_keys') or {}
-        server_keys = {}
+        server_keys = castle.storage.getGlobal('server_keys') or {}
+        -- server_keys = {}
         
         local found = true
         server_key = tostring(rnd(1000000000)) 
