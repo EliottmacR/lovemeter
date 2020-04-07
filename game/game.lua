@@ -52,7 +52,7 @@ function draw_game()
     end
   end
   
-  if alpha_s then add_log(alpha_s) end
+  if alpha_s then add_log("alpha is " .. alpha_s) end
   -- if global_count then add_log(global_count) end
   
   -- if _SCs then 
