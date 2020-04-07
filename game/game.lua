@@ -52,6 +52,14 @@ function draw_game()
     end
   end
   
+  -- if global_count then add_log(global_count) end
+  
+  -- if _SCs then 
+    -- for i, s in pairs(_SCs) do
+      -- add_log(i .. " : " .. s)
+    -- end
+  -- end
+  
   use_font("log")
   print_log()
   

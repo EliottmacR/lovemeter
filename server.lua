@@ -25,6 +25,8 @@ function server.load()
   
 end
 
+WAIT_TIME_SETCOUNT = 5
+wait_time = 0
 
 function server.update()
   if not initialized then return end
@@ -48,82 +50,84 @@ function server.update()
     
   end
   
-  
-  if server_state == "alphaornot" then
-  
-    -- if not doingalphaornot then
-      -- network.async(function()
-        -- doingalphaornot = true
-        -- alpha_server = castle.storage.getGlobal("alpha")
-        
-        -- if not alpha_server then 
-          -- castle.storage.setGlobal(alpha_server, server_key)
-        -- end
-        
-        -- server_state = "setcount"
-        -- wait_time = WAIT_TIME_SETCOUNT
-        -- doingalphaornot = false
-      -- end
-    -- end
+  if server_key then
+    if server_state == "alphaornot" then
     
-  elseif server_state == "setcount" then
-    -- wait_time = wait_time - dt()
+      if not doingalphaornot then
+        network.async(function()
+          doingalphaornot = true
+          alpha_server = castle.storage.getGlobal("alpha")
+          
+          if not alpha_server then 
+            castle.storage.setGlobal(alpha_server, server_key)
+          end
+          
+          server_state = "setcount"
+          wait_time = WAIT_TIME_SETCOUNT
+          doingalphaornot = false
+        end
+      end
+      
+    elseif server_state == "setcount" then
+      wait_time = wait_time - dt()
 
-    -- if wait_time < 0 then
-    
-      -- if not doingsetcount then
-      -- network.async(function
-        -- doingsetcount = true
-        -- local old count = castle.storage.getGlobal(server_key)
-        -- if old_count == 0 then        
-          -- castle.storage.setGlobal(server_key, server_count)  
-          -- old_server_count = server_count
-          -- server_count = 0
-        -- end
-        
-        -- global_count = castle.storage.getGlobal(global_key)
-        
-        -- alpha_server = castle.storage.getGlobal("alpha")
-        
-        -- if server_key == alpha_server then
-          -- server_state = "iamthealpha"
-          -- wait_time = 0
-        -- else
-          -- server_state = "alphaornot"
-          -- wait_time = WAIT_TIME_ALPHAORNOT
-        -- end
-        
-        -- doingsetcount = false
-      -- end
-    
-    -- end
-    
-  elseif server_state == "iamthealpha" then
-    
-      -- if not doingiamthealpha then
-      -- network.async(function
-        -- doingiamthealpha = true
-        
-        -- server_keys = castle.storage.getGlobal('server_keys')
-        
-        -- for i, v in pairs(server_keys) do
-        
-          -- local count = castle.storage.getGlobal(v)          
-          -- if count then
-            -- global_count = global_count + count
-            -- castle.storage.setGlobal(v, 0)
+      if wait_time < 0 then
+          server_state = "alphaornot"
+      
+        -- if not doingsetcount then
+        -- network.async(function
+          -- doingsetcount = true
+          -- local old count = castle.storage.getGlobal(server_key)
+          -- if old_count == 0 then        
+            -- castle.storage.setGlobal(server_key, server_count)  
+            -- old_server_count = server_count
+            -- server_count = 0
           -- end
           
+          -- global_count = castle.storage.getGlobal(global_key)
+          
+          -- alpha_server = castle.storage.getGlobal("alpha")
+          
+          -- if server_key == alpha_server then
+            -- server_state = "iamthealpha"
+            -- wait_time = 0
+          -- else
+            -- server_state = "alphaornot"
+            -- wait_time = WAIT_TIME_ALPHAORNOT
+          -- end
+          
+          -- doingsetcount = false
         -- end
-        
-        -- castle.storage.setGlobal(last_updated_time, 0)
-        
-        -- server_state = "alphaornot"
-        -- doingiamthealpha = false
-      -- end)
       
+      end
+      
+    elseif server_state == "iamthealpha" then
+      
+        -- if not doingiamthealpha then
+        -- network.async(function
+          -- doingiamthealpha = true
+          
+          -- server_keys = castle.storage.getGlobal('server_keys')
+          
+          -- for i, v in pairs(server_keys) do
+          
+            -- local count = castle.storage.getGlobal(v)          
+            -- if count then
+              -- global_count = global_count + count
+              -- castle.storage.setGlobal(v, 0)
+            -- end
+            
+          -- end
+          
+          -- castle.storage.setGlobal(last_updated_time, 0)
+          
+          -- server_state = "alphaornot"
+          -- doingiamthealpha = false
+        -- end)
+        
+    end  
   end  
-  
+    
   if ROLE then server.postupdate(dt()) end
 end
 
