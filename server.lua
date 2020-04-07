@@ -57,11 +57,11 @@ function server.update()
       if not doingalphaornot then
         network.async(function()
           doingalphaornot = true
-          -- alpha_server = castle.storage.getGlobal("alpha")
+          alpha_server = castle.storage.getGlobal("alpha")
           
-          -- if not alpha_server then 
-            -- castle.storage.setGlobal(alpha_server, server_key)
-          -- end
+          if not alpha_server then 
+            castle.storage.setGlobal(alpha_server, server_key)
+          end
           
           server_state = "setcount"
           wait_time = WAIT_TIME_SETCOUNT
