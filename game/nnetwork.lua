@@ -88,7 +88,7 @@ end
 
 
 do -- client
-  _SK "not found"
+  _SK = "not found"
   function client_init()
   
   end
