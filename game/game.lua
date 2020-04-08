@@ -62,6 +62,8 @@ function draw_game()
   if sst then add_log("Connected!") end
   if sst then add_log("sst is " .. sst) end
   if delta then add_log("delta is " .. delta) end
+  if delta2 then add_log("delta2 is " .. delta2) end
+  if delta3 then add_log("delta3 is " .. delta3) end
   use_font("log")
   print_log()
   
