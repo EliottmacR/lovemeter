@@ -209,7 +209,7 @@ do -- server
       server.share[10] = last_updated or "no last_updated"
       if time_after_iamthealpha and time_before_iamthealpha then
       
-        server.share[11] = last_updated or "no last_updated"
+        server.share[11] = time_after_iamthealpha - time_before_iamthealpha
         
       end
     end
