@@ -81,7 +81,7 @@ function init_controls()
   
   register_btn("c", 0,  input_id("mouse_button", "lb"))
   -- register_btn("enable_log", 0,  input_id("mouse_button", "lb"))
-  register_btn("enable_log", 0,  input_id("keyboard", "l"))
+  register_btn("enable_logs", 0,  input_id("keyboard", "l"))
   
 end
 
