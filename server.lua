@@ -29,6 +29,7 @@ WAIT_TIME_SETCOUNT = 5
 wait_time = 0
 doingalphaornot = false
 doingsetcount = false
+doingiamthealpha = false
 
 waiting_for_conf = 0
 not_send = 0
@@ -128,7 +129,7 @@ function server.update()
           network.async(function ()
             doingiamthealpha = true
               
-            global_count = castle.storage.getGlobal('global_key')
+            global_count = castle.storage.getGlobal('global_key') or 0
             
             server_keys = castle.storage.getGlobal('server_keys')
             

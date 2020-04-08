@@ -207,8 +207,8 @@ do -- server
     
       network.async(function ()
         
-        global_meter = castle.storage.getGlobal('global_key') or 0
-        castle.storage.setGlobal('global_key', global_meter)
+        global_count = castle.storage.getGlobal('global_key') or 0
+        -- castle.storage.setGlobal('global_key', global_count)
         
         server_keys = castle.storage.getGlobal('server_keys') or {}
         -- server_keys = {}
