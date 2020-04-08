@@ -30,6 +30,10 @@ wait_time = 0
 doingalphaornot = false
 doingsetcount = false
 
+waiting_for_conf = 0
+not_send = 0
+send_clicks = 0
+
 function server.update()
   if not initialized then return end
 
@@ -95,10 +99,11 @@ function server.update()
             doingsetcount = true
             local old_count = castle.storage.getGlobal(server_key)
             
-            if old_count == 0 then        
-              castle.storage.setGlobal(server_key, server_count)  
-              old_server_count = server_count
-              server_count = 0
+            if old_count == 0 then     
+              send_clicks = send_clicks + waiting_for_conf
+              waiting_for_conf = get_all_clicks() - send_clicks
+              
+              castle.storage.setGlobal(server_key, waiting_for_conf)
             end
             
             alpha_server = castle.storage.getGlobal("alpha")

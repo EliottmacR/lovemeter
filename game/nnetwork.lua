@@ -184,7 +184,7 @@ do -- server
     
     for id,ho in pairs(server.homes) do
       server.share[1][id] = ho[1]
-      server.share[2][id] = get_all_clicks() - clicks[id]
+      server.share[2][id] = get_visible_clicks() - clicks[id]
       server.share[3] = server_key or "no server key"
       server.share[4] = server_keys or {}
       server.share[5] = alpha_server or "no alpha key"
@@ -265,7 +265,11 @@ do -- server
   function get_all_clicks()
     local cl = 0
     for i, c in pairs (clicks) do cl = cl + c end
-    return cl + (global_meter or 0)
+    return cl
+  end
+
+  function get_visible_clicks()
+    return get_all_clicks() + (global_count or 0) - (send_clicks or 0)
   end
 
 end
