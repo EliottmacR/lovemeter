@@ -119,32 +119,32 @@ function server.update()
       
     elseif server_state == "iamthealpha" then
       
-        -- if not doingiamthealpha then
-        -- network.async(function ()
-          -- doingiamthealpha = true
+        if not doingiamthealpha then
+          network.async(function ()
+            doingiamthealpha = true
+              
+            global_count = castle.storage.getGlobal('global_key')
             
-          -- global_count = castle.storage.getGlobal('global_key')
-          
-          -- server_keys = castle.storage.getGlobal('server_keys')
-          
-          -- for i, v in pairs(server_keys) do
-            -- if v then
-              -- local count = castle.storage.getGlobal(tostring(v))          
-              -- if count then
-                -- global_count = global_count + count
-                -- castle.storage.setGlobal(tostring(v), 0)
-              -- end
-            -- end
+            server_keys = castle.storage.getGlobal('server_keys')
             
-          -- end
-          
-          -- castle.storage.setGlobal("alpha", {server_key, get_time()})
-          
-          -- server_state = "alphaornot"
-          -- doingiamthealpha = false
-        -- end)
+            for i, v in pairs(server_keys) do
+              if v then
+                local count = castle.storage.getGlobal(tostring(v))          
+                if count then
+                  global_count = global_count + count
+                  castle.storage.setGlobal(tostring(v), 0)
+                end
+              end
+              
+            end
+            
+            castle.storage.setGlobal("alpha", {server_key, get_time()})
+            
+            server_state = "alphaornot"
+            doingiamthealpha = false
+          end)
         
-      -- end  
+      end  
     end  
   end  
     
