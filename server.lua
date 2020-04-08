@@ -135,10 +135,8 @@ function server.update()
             
             for i, v in pairs(server_keys) do
               if v then
-                local count = castle.storage.getGlobal(tostring(v))          
-                if count then
-                  global_count = global_count + count
-                  castle.storage.setGlobal(tostring(v), 0)
+                  global_count = global_count + castle.storage.getGlobal(v) or 0
+                  castle.storage.setGlobal(v, 0)
                 end
               end
               

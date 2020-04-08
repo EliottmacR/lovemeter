@@ -163,7 +163,7 @@ do -- server
     server.share[2] = {}
     
     server_meter = 0
-    global_meter = 0
+    global_count = 0
     server_key = 0
     
     -- network.async(function () castle.storage.setGlobal('server_keys', {}) end)
