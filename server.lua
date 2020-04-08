@@ -56,10 +56,6 @@ function server.update()
         network.async(function()
           doingalphaornot = true
           server_keys = get_server_keys() or {}
-          if clear_sks then
-            clear_sks = false
-            server_keys = {server_key}
-          end
           
           -- num_server_keys = count(server_keys)
           alpha_server = get_alpha_server()
@@ -130,14 +126,19 @@ function server.update()
             
             for i, v in pairs(server_keys) do
               if v then
-                local count = castle.storage.getGlobal(tostring(v)) or 0          
-                if count then
-                  global_count = global_count + count
-                  if v == server_key then
-                    send_clicks = send_clicks + waiting_for_conf
-                    waiting_for_conf = 0
+                if not clear then
+                  local count = castle.storage.getGlobal(tostring(v))          
+                  if count then
+                    global_count = global_count + count
+                    if v == server_key then
+                      send_clicks = send_clicks + waiting_for_conf
+                      waiting_for_conf = 0
+                    end
+                    castle.storage.setGlobal(tostring(v), 0)
                   end
-                  castle.storage.setGlobal(tostring(v), 0)
+                else
+                  server_keys[i] == nil
+                  castle.storage.setGlobal(tostring(v), nil)
                 end
               end
             end
