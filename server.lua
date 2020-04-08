@@ -49,6 +49,7 @@ function server.update()
   
     if update_data_timer < 0 and not refreshing_data then
       update_data_timer = 3
+      last_updated = get_time()
       
       network.async(function()
         refreshing_data = true
@@ -64,7 +65,6 @@ function server.update()
         
         
         refreshing_data = false
-        last_updated = get_time()
       end)
       
       
