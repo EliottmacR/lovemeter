@@ -154,13 +154,14 @@ function get_time()
 end
           
 
-last_time_got_as = 0
+-- last_time_got_as = 0
 function get_alpha_server()
-  if get_time() - last_time_got_as > 4 then
-    _ALPHA = castle.storage.getGlobal("alpha")
-    last_time_got_as = get_time()
-  end
-  return _ALPHA 
+  -- if get_time() - last_time_got_as > 4 then
+    -- _ALPHA = castle.storage.getGlobal("alpha")
+    -- last_time_got_as = get_time()
+  -- end
+  -- return _ALPHA 
+  castle.storage.getGlobal("alpha")
 end
 
 last_time_got_sk = 0
