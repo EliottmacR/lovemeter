@@ -53,13 +53,8 @@ function draw_game()
   end
   
   if alpha_s and alpha_s[1] then add_log("alpha is " .. alpha_s[1]) end
-  -- if global_count then add_log(global_count) end
+  if gc athen add_log("gc is " .. gc) end
   
-  -- if _SCs then 
-    -- for i, s in pairs(_SCs) do
-      -- add_log(i .. " : " .. s)
-    -- end
-  -- end
   
   use_font("log")
   print_log()
