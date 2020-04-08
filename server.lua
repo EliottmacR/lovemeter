@@ -47,28 +47,27 @@ function server.update()
   
   if server_key then
   
-    if update_data_timer < 0 and not refreshing_data then
-      update_data_timer = 3
+    -- if update_data_timer < 0 and not refreshing_data then
+      -- update_data_timer = 3
       
-      network.async(function()
-        refreshing_data = true
-        server_keys = castle.storage.getGlobal('server_keys') or {}
-        global_count = castle.storage.getGlobal('global_key') or 0
-        my_meter = castle.storage.getGlobal(server_key) or 0
-        
-        last_updated = get_time()
-        
-        if my_meter == 0 then
-          send_clicks = send_clicks + waiting_for_conf
-          waiting_for_conf = 0
-        end
+      -- network.async(function()
+        -- refreshing_data = true
+        -- server_keys = castle.storage.getGlobal('server_keys') or {}
+        -- global_count = castle.storage.getGlobal('global_key') or 0
+        -- my_meter = castle.storage.getGlobal(server_key) or 0
         
         
-        refreshing_data = false
-      end)
+        -- if my_meter == 0 then
+          -- send_clicks = send_clicks + waiting_for_conf
+          -- waiting_for_conf = 0
+        -- end
+        
+        
+        -- refreshing_data = false
+      -- end)
       
       
-    end
+    -- end
   
     if server_state == "alphaornot" then
     
@@ -102,6 +101,7 @@ function server.update()
           network.async(function ()
             doingsetcount = true
             local old_count = castle.storage.getGlobal(server_key)
+            global_count = castle.storage.getGlobal('global_key') or 0
             
             if old_count == 0 then     
               send_clicks = send_clicks + waiting_for_conf
