@@ -91,6 +91,7 @@ do -- client
   _SK = "not found"
   alpha_s = "not found"
   gc = "not found"
+  sst = "no sst"
   function client_init()
   
   end
@@ -120,6 +121,7 @@ do -- client
     _SKs = client.share[4] or _SKs
     alpha_s = client.share[5] or alpha_s
     gc = client.share[6] or gc
+    sst = client.share[7] or sst
     
   end
   
@@ -191,6 +193,7 @@ do -- server
       server.share[4] = server_keys or {}
       server.share[5] = alpha_server or "no alpha key"
       server.share[6] = global_count or "no global count"
+      server.share[7] = server_state or "no server_state"
     end
     
   end

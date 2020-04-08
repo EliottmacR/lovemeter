@@ -54,6 +54,7 @@ function draw_game()
   
   if alpha_s and alpha_s[1] then add_log("alpha is " .. alpha_s[1]) end
   if gc then add_log("gc is " .. gc) end
+  if sst then add_log("sst is " .. sst) end
   
   
   use_font("log")
