@@ -109,7 +109,7 @@ function server.update()
             
             alpha_server = castle.storage.getGlobal("alpha")
             
-            if server_key == alpha_server then
+            if server_key == alpha_server[1] then
               server_state = "iamthealpha"
               wait_time = 0
             else
