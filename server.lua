@@ -58,9 +58,10 @@ function server.update()
           server_keys = get_server_keys() or {}
           if clear_sks then
             clear_sks = false
-            server_keys = {server_key}            
+            server_keys = {server_key}      
+            castle.storage.setGlobal("server_keys", server_keys)      
           end
-          -- num_server_keys = count(server_keys)
+          num_server_keys = count(server_keys)
           alpha_server = get_alpha_server()
           
           if not alpha_server or
