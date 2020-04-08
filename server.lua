@@ -141,16 +141,11 @@ function server.update()
                 local count = castle.storage.getGlobal(tostring(v)) or 0          
                 if count then
                   global_count = global_count + count
-                  if v == "938459767.28428" then
-                    castle.storage.setGlobal(tostring(v), nil)
-                    server_keys[i] = nil
-                  else
-                    if v == server_key then
-                      send_clicks = send_clicks + waiting_for_conf
-                      waiting_for_conf = 0
-                    end
-                    castle.storage.setGlobal(tostring(v), 0)
+                  if v == server_key then
+                    send_clicks = send_clicks + waiting_for_conf
+                    waiting_for_conf = 0
                   end
+                  castle.storage.setGlobal(tostring(v), 0)
                 end
               end
               

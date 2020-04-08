@@ -52,14 +52,14 @@ function draw_game()
     end
   end
   
-  if alpha_s and alpha_s[1] then add_log("alpha is " .. alpha_s[1]) end
-  if gc then add_log("gc is " .. gc) end
-  if sst then add_log("sst is " .. sst) end
-  if sc then add_log("sc is " .. sc) end
-  if wfc then add_log("wfc is " .. wfc) end
-  if lud then add_log("lud is " .. lud) end
+  -- if alpha_s and alpha_s[1] then add_log("alpha is " .. alpha_s[1]) end
+  -- if gc then add_log("gc is " .. gc) end
+  -- if sc then add_log("sc is " .. sc) end
+  -- if wfc then add_log("wfc is " .. wfc) end
+  -- if lud then add_log("lud is " .. lud) end
   
   
+  if sst then add_log("Connected!") end
   use_font("log")
   print_log()
   
