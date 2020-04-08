@@ -96,6 +96,7 @@ do -- client
   sc = "no sc"
   wfc =  "no wfc"
   lud =  "no wfc"
+  delta =  "no delta"
   
   function client_init()
   
@@ -130,6 +131,7 @@ do -- client
     sc = client.share[8] or sc
     wfc = client.share[9] or wfc
     lud = client.share[10] or lud
+    delta = client.share[11] or delta
     
   end
   
