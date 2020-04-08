@@ -52,13 +52,14 @@ function server.update()
       network.async(function()
         refreshing_data = true
         server_keys = castle.storage.getGlobal('server_keys') or {}
-        global_meter = castle.storage.getGlobal('global_key') or 0
+        global_count = castle.storage.getGlobal('global_key') or 0
         
-        -- my_meter = (server_key and castle.storage.getGlobal(server_key) or 0)
+        my_meter = castle.storage.getGlobal(server_key) or 0
         
-        -- if my_meter == 0 then
-          -- since_startup_server_count = since_startup_server_count + server_count
-        -- end
+        if my_meter == 0 then
+          send_clicks = send_clicks + waiting_for_conf
+          waiting_for_conf = 0
+        end
         
         
         refreshing_data = false
