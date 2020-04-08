@@ -123,9 +123,9 @@ function server.update()
         network.async(function ()
           doingiamthealpha = true
             
-          global_count = castle.storage.getGlobal('global_key')
+          -- global_count = castle.storage.getGlobal('global_key')
           
-          server_keys = castle.storage.getGlobal('server_keys')
+          -- server_keys = castle.storage.getGlobal('server_keys')
           
           for i, v in pairs(server_keys) do
             -- if v then
