@@ -222,3 +222,44 @@ end
 
 
 
+
+
+
+
+
+
+
+client send clicks to server
+
+
+we need to send to the client server_count - his_clics so the lag is invisible
+
+
+if the global meter needs to be invisible, global meter needs to return global_meter - server_counts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

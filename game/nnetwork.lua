@@ -184,7 +184,7 @@ do -- server
     
     for id,ho in pairs(server.homes) do
       server.share[1][id] = ho[1]
-      server.share[2][id] = get_all_clicks() - clicks[id] + global_meter
+      server.share[2][id] = get_all_clicks() - clicks[id]
       server.share[3] = server_key or "no server key"
       server.share[4] = server_keys or {}
       server.share[5] = alpha_server or "no alpha key"
@@ -239,7 +239,6 @@ do -- server
     if client_connected == 0 then
       
       network.async(function ()
-        
         server_keys = castle.storage.getGlobal('server_keys') or {}
         
         for i, v in pairs(server_keys) do 
@@ -258,16 +257,13 @@ do -- server
         
         server_key = nil
       end)
-    
     end
-    
-    
   end
   
   function get_all_clicks()
     local cl = 0
     for i, c in pairs (clicks) do cl = cl + c end
-    return cl
+    return cl + (global_meter or 0)
   end
 
 end
