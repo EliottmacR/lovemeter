@@ -148,6 +148,9 @@ function server.update()
             
             castle.storage.setGlobal("alpha", {server_key, get_time()})
             
+            send_clicks = send_clicks + waiting_for_conf
+            waiting_for_conf = 0         
+            
             server_state = "alphaornot"
             doingiamthealpha = false
           end)
