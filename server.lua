@@ -159,7 +159,7 @@ function server.update()
 end
 
 function too_old(time_stamp)
-  return (get_time() - time_stamp) > 10
+  return (get_time() - time_stamp) > 20
   -- return false
 end
 
