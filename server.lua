@@ -163,7 +163,7 @@ function get_alpha_server()
     -- last_time_got_as = get_time()
   -- end
   -- return _ALPHA 
-  castle.storage.getGlobal("alpha")
+  return castle.storage.getGlobal("alpha")
 end
 
 last_time_got_sk = 0
