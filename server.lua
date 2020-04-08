@@ -137,7 +137,7 @@ function server.update()
                     castle.storage.setGlobal(tostring(v), 0)
                   end
                 else
-                  server_keys[i] == nil
+                  server_keys[i] = nil
                   castle.storage.setGlobal(tostring(v), nil)
                 end
               end
