@@ -46,36 +46,14 @@ function server.update()
   update_data_timer = update_data_timer - dt()
   
   if server_key then
-  
-    -- if update_data_timer < 0 and not refreshing_data then
-      -- update_data_timer = 3
-      
-      -- network.async(function()
-        -- refreshing_data = true
-        -- server_keys = castle.storage.getGlobal('server_keys') or {}
-        -- global_count = castle.storage.getGlobal('global_key') or 0
-        -- my_meter = castle.storage.getGlobal(server_key) or 0
-        
-        
-        -- if my_meter == 0 then
-          -- send_clicks = send_clicks + waiting_for_conf
-          -- waiting_for_conf = 0
-        -- end
-        
-        
-        -- refreshing_data = false
-      -- end)
-      
-      
-    -- end
-  
+    
     if server_state == "alphaornot" then
     
       if not doingalphaornot then
         network.async(function()
           doingalphaornot = true
-          server_keys = castle.storage.getGlobal('server_keys') or {}
-          alpha_server = castle.storage.getGlobal("alpha")
+          server_keys = get_server_keys() or {}
+          alpha_server = get_alpha_server()
           
           if not alpha_server or
              not alpha_server[1] or 
@@ -100,7 +78,7 @@ function server.update()
         if not doingsetcount then
           network.async(function ()
             doingsetcount = true
-            local old_count = castle.storage.getGlobal(server_key)
+            local old_count = get_server_keys()
             global_count = castle.storage.getGlobal('global_key') or 0
             
             if old_count == 0 then     
@@ -110,7 +88,7 @@ function server.update()
               castle.storage.setGlobal(server_key, waiting_for_conf)
             end
             
-            alpha_server = castle.storage.getGlobal("alpha")
+            alpha_server = get_alpha_server()
             
             if server_key == alpha_server[1] then
               server_state = "iamthealpha"
@@ -134,7 +112,7 @@ function server.update()
               
             global_count = castle.storage.getGlobal('global_key') or 0
             
-            server_keys = castle.storage.getGlobal('server_keys')
+            server_keys = get_server_keys()
             
             for i, v in pairs(server_keys) do
               if v then
@@ -174,4 +152,27 @@ end
 function get_time()
   return os.time(os.date('!*t'))
 end
+          
+
+last_time_got_as = 0
+function get_alpha_server()
+  if get_time() - last_time_got_as > 4 then
+    _ALPHA = castle.storage.getGlobal("alpha")
+    last_time_got_as = get_time()
+  end
+  return _ALPHA 
+end
+
+last_time_got_sk = 0
+function get_server_keys()
+  if get_time() - last_time_got_sk > 4 then
+    _SERVER_K = castle.storage.getGlobal("server_keys")
+    last_time_got_sk = get_time()
+  end
+  return _SERVER_K
+end
+
+
+
+
 
