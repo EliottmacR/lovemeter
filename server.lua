@@ -47,12 +47,12 @@ function server.update()
   if server_key then
   
     if update_data_timer < 0 and not refreshing_data then
-      -- update_data_timer = 3
+      update_data_timer = 3
       
-      -- network.async(function()
-        -- refreshing_data = true
-        -- server_keys = castle.storage.getGlobal('server_keys') or {}
-        -- global_meter = castle.storage.getGlobal('global_key') or 0
+      network.async(function()
+        refreshing_data = true
+        server_keys = castle.storage.getGlobal('server_keys') or {}
+        global_meter = castle.storage.getGlobal('global_key') or 0
         
         -- my_meter = (server_key and castle.storage.getGlobal(server_key) or 0)
         
@@ -61,8 +61,8 @@ function server.update()
         -- end
         
         
-        -- refreshing_data = false
-      -- end)
+        refreshing_data = false
+      end)
       
       
     end
