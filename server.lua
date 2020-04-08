@@ -25,7 +25,7 @@ function server.load()
   
 end
 
-WAIT_TIME_SETCOUNT = 5
+WAIT_TIME_SETCOUNT = 2
 wait_time = 0
 doingalphaornot = false
 doingsetcount = false
