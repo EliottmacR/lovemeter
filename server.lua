@@ -89,32 +89,31 @@ function server.update()
       wait_time = wait_time - dt()
 
       if wait_time < 0 then
-          -- server_state = "alphaornot"
       
-        -- if not doingsetcount then
-          -- network.async(function ()
-            -- doingsetcount = true
-            -- local old_count = castle.storage.getGlobal(server_key)
+        if not doingsetcount then
+          network.async(function ()
+            doingsetcount = true
+            local old_count = castle.storage.getGlobal(server_key)
             
-            -- if old_count == 0 then        
-              -- castle.storage.setGlobal(server_key, server_count)  
-              -- old_server_count = server_count
-              -- server_count = 0
-            -- end
+            if old_count == 0 then        
+              castle.storage.setGlobal(server_key, server_count)  
+              old_server_count = server_count
+              server_count = 0
+            end
             
-            -- alpha_server = castle.storage.getGlobal("alpha")
+            alpha_server = castle.storage.getGlobal("alpha")
             
-            -- if server_key == alpha_server then
-              -- server_state = "iamthealpha"
-              -- wait_time = 0
-            -- else
-              -- server_state = "alphaornot"
-              -- wait_time = WAIT_TIME_ALPHAORNOT
-            -- end
+            if server_key == alpha_server then
+              server_state = "iamthealpha"
+              wait_time = 0
+            else
+              server_state = "alphaornot"
+              wait_time = WAIT_TIME_ALPHAORNOT
+            end
             
-            -- doingsetcount = false
-          -- end)
-        -- end
+            doingsetcount = false
+          end)
+        end
       
       end
       
