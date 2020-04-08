@@ -205,6 +205,11 @@ do -- server
       server.share[8] = send_clicks or "no send_clicks"
       server.share[9] = waiting_for_conf or "no waiting_for_conf"
       server.share[10] = last_updated or "no last_updated"
+      if time_after_iamthealpha and time_before_iamthealpha then
+      
+        server.share[11] = last_updated or "no last_updated"
+        
+      end
     end
     
   end
