@@ -128,11 +128,12 @@ function server.update()
           server_keys = castle.storage.getGlobal('server_keys')
           
           for i, v in pairs(server_keys) do
-          
-            local count = castle.storage.getGlobal(v)          
-            if count then
-              global_count = global_count + count
-              castle.storage.setGlobal(v, 0)
+            if v then
+              local count = castle.storage.getGlobal(v)          
+              if count then
+                global_count = global_count + count
+                castle.storage.setGlobal(v, 0)
+              end
             end
             
           end
