@@ -1,4 +1,4 @@
-local state = require 'state'
+local state = require 'https://raw.githubusercontent.com/castle-games/share.lua/master/state.lua'
 
 
 local enet = require 'enet' -- Network
