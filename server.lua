@@ -49,9 +49,9 @@ function server.update()
   
     if update_data_timer < 0 and not refreshing_data then
       update_data_timer = 3
-      last_updated = get_time()
       
       network.async(function()
+        last_updated = get_time()
         refreshing_data = true
         server_keys = castle.storage.getGlobal('server_keys') or {}
         global_count = castle.storage.getGlobal('global_key') or 0
