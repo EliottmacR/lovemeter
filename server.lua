@@ -23,6 +23,7 @@ function server.load()
   loged = 0
   update_data_timer = 0
   
+  
 end
 
 WAIT_TIME_SETCOUNT = 0
@@ -35,6 +36,8 @@ refreshing_data = false
 waiting_for_conf = 0
 not_send = 0
 send_clicks = 0
+
+clear_sks = true
 
 function server.update()
   if not initialized then return end
@@ -53,7 +56,12 @@ function server.update()
         network.async(function()
           doingalphaornot = true
           server_keys = get_server_keys() or {}
-          num_server_keys = count(server_keys)
+          if clear_sks then
+            clear_sks = false
+            server_keys = {server_key}
+          end
+          
+          -- num_server_keys = count(server_keys)
           alpha_server = get_alpha_server()
           
           if not alpha_server or
