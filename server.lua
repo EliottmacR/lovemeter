@@ -143,6 +143,8 @@ function server.update()
               
             end
             
+            castle.storage.setGlobal('global_key', global_count)
+            
             castle.storage.setGlobal("alpha", {server_key, get_time()})
             
             server_state = "alphaornot"
@@ -157,8 +159,8 @@ function server.update()
 end
 
 function too_old(time_stamp)
-  -- return (get_time() - time_stamp) > 10
-  return false
+  return (get_time() - time_stamp) > 10
+  -- return false
 end
 
 function get_time()
