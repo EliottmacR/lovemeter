@@ -251,7 +251,9 @@ do -- server
         
         alpha_server = castle.storage.getGlobal("alpha")
         
-        if alpha_server == server_key then castle.storage.setGlobal(alpha_server, nil) end
+        if alpha_server == server_key then 
+          castle.storage.setGlobal("alpha", nil) 
+        end
         
         castle.storage.setGlobal(server_key, nil)
         
