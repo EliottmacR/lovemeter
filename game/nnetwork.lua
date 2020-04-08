@@ -97,6 +97,8 @@ do -- client
   wfc =  "no wfc"
   lud =  "no wfc"
   delta =  "no delta"
+  delta2 =  "no delta2"
+  delta3 =  "no delta3"
   
   function client_init()
   
@@ -132,6 +134,8 @@ do -- client
     wfc = client.share[9] or wfc
     lud = client.share[10] or lud
     delta = client.share[11] or delta
+    delta2 = client.share[12] or delta2
+    delta3 = client.share[13] or delta3
     
   end
   
@@ -207,9 +211,11 @@ do -- server
       server.share[8] = send_clicks or "no send_clicks"
       server.share[9] = waiting_for_conf or "no waiting_for_conf"
       server.share[10] = last_updated or "no last_updated"
-      if time_after_iamthealpha and time_before_iamthealpha then
+      if time_after_iamthealpha and time_before_iamthealpha and t1 and t2 then
       
         server.share[11] = time_after_iamthealpha - time_before_iamthealpha
+        server.share[12] = t1 - time_before_iamthealpha
+        server.share[13] = t2 - time_before_iamthealpha
         
       end
     end

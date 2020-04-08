@@ -109,12 +109,16 @@ function server.update()
         if not doingiamthealpha then
           network.async(function ()
             time_after_iamthealpha = nil
+            t1 = nil
+            t2 = nil
             time_before_iamthealpha = get_time()
             doingiamthealpha = true
               
-            global_count = castle.storage.getGlobal('global_key') or 0
-            
+            global_count = castle.storage.getGlobal('global_key') or 0            
             server_keys = get_server_keys()
+            
+            t1 = get_time()
+            
             for i, v in pairs(server_keys) do
               if v then
                 local count = castle.storage.getGlobal(tostring(v)) or 0          
@@ -127,8 +131,8 @@ function server.update()
                   castle.storage.setGlobal(tostring(v), 0)
                 end
               end
-              
             end
+            t2 = get_time()
             
             castle.storage.setGlobal('global_key', global_count)
             
