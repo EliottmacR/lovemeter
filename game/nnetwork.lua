@@ -88,12 +88,15 @@ end
 
 
 do -- client
+
   _SK = "not found"
   alpha_s = "not found"
   gc = "not found"
   sst = "no sst"
   sc = "no sc"
   wfc =  "no wfc"
+  lud =  "no wfc"
+  
   function client_init()
   
   end
@@ -126,6 +129,7 @@ do -- client
     sst = client.share[7] or sst
     sc = client.share[8] or sc
     wfc = client.share[9] or wfc
+    lud = client.share[10] or lud
     
   end
   
@@ -200,6 +204,7 @@ do -- server
       server.share[7] = server_state or "no server_state"
       server.share[8] = send_clicks or "no send_clicks"
       server.share[9] = waiting_for_conf or "no waiting_for_conf"
+      server.share[10] = last_updated or "no last_updated"
     end
     
   end

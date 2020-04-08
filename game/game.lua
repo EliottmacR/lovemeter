@@ -57,6 +57,7 @@ function draw_game()
   if sst then add_log("sst is " .. sst) end
   if sc then add_log("sc is " .. sc) end
   if wfc then add_log("wfc is " .. wfc) end
+  if lud then add_log("lud is " .. lud) end
   
   
   use_font("log")

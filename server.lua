@@ -30,6 +30,7 @@ wait_time = 0
 doingalphaornot = false
 doingsetcount = false
 doingiamthealpha = false
+refreshing_data = false
 
 waiting_for_conf = 0
 not_send = 0
@@ -63,6 +64,7 @@ function server.update()
         
         
         refreshing_data = false
+        last_updated = get_time()
       end)
       
       
