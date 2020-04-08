@@ -1,6 +1,6 @@
 if castle then
-  cs = require("https://raw.githubusercontent.com/castle-games/share.lua/master/cs.lua")
-else
+  -- cs = require("https://raw.githubusercontent.com/castle-games/share.lua/master/cs.lua")
+-- else
   cs = require("sharelua/cs")
 end
 

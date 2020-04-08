@@ -228,7 +228,7 @@ do
                 table.insert(sessionTokens, v)
             end
 
-            castle.multiplayer.heartbeatV2(numClients, sessionTokens)
+            castle.multiplayer.heartbeatV2(max(1, numClients), sessionTokens)
         end
     end
 end

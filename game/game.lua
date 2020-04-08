@@ -60,6 +60,7 @@ function draw_game()
   
   
   if sst then add_log("Connected!") end
+  if sst then add_log("sst is " .. sst) end
   use_font("log")
   print_log()
   
