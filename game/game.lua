@@ -64,6 +64,7 @@ function draw_game()
   if delta then add_log("delta is " .. delta) end
   if delta2 then add_log("delta2 is " .. delta2) end
   if delta3 then add_log("delta3 is " .. delta3) end
+  if nsk then add_log("nsk is " .. nsk) end
   use_font("log")
   print_log()
   

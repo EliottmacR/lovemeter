@@ -53,6 +53,7 @@ function server.update()
         network.async(function()
           doingalphaornot = true
           server_keys = get_server_keys() or {}
+          num_server_keys = count(server_keys)
           alpha_server = get_alpha_server()
           
           if not alpha_server or
@@ -132,6 +133,7 @@ function server.update()
                 end
               end
             end
+            
             t2 = get_time()
             
             castle.storage.setGlobal('global_key', global_count)

@@ -99,6 +99,7 @@ do -- client
   delta =  "no delta"
   delta2 =  "no delta2"
   delta3 =  "no delta3"
+  nsk =  "no nsk"
   
   function client_init()
   
@@ -136,6 +137,7 @@ do -- client
     delta = client.share[11] or delta
     delta2 = client.share[12] or delta2
     delta3 = client.share[13] or delta3
+    nsk = client.share[11] or 0
     
   end
   
@@ -218,7 +220,9 @@ do -- server
         server.share[13] = t2 - time_before_iamthealpha
         
       end
+      server.share[14] = num_server_keys
     end
+    
     
   end
   
