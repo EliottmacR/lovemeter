@@ -100,6 +100,7 @@ do -- client
   delta2 =  "no delta2"
   delta3 =  "no delta3"
   nsk =  "no nsk"
+  tsk =  "no tsk"
   
   function client_init()
   
@@ -137,7 +138,8 @@ do -- client
     delta = client.share[11] or delta
     delta2 = client.share[12] or delta2
     delta3 = client.share[13] or delta3
-    nsk = client.share[11] or 0
+    nsk = client.share[14] or 0
+    -- tsk = client.share[15] or 0
     
   end
   
@@ -221,6 +223,14 @@ do -- server
         
       end
       server.share[14] = num_server_keys
+      
+      -- local ta = {}
+      
+      -- for i, v in pairs(server_keys) do
+        -- add(ta, v)
+      -- end
+      
+      -- server.share[15] = num_server_keys
     end
     
     
