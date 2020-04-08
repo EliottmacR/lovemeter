@@ -23,7 +23,7 @@ function init_game()
   end
   
   init_lm()
-  
+  log_enabled = false
 end
 
 function update_game()
@@ -31,6 +31,8 @@ function update_game()
     update_heart()
     update_c_lm()
   end
+  
+  if btnp("enable_logs") then log_enabled = not log_enabled end
   
   update_network()  
   
@@ -52,19 +54,20 @@ function draw_game()
     -- end
   -- end
   
-  if alpha_s and alpha_s[1] then add_log("alpha is " .. alpha_s[1]) end
-  if gc then add_log("gc is " .. gc) end
-  if sc then add_log("sc is " .. sc) end
-  if wfc then add_log("wfc is " .. wfc) end
-  if lud then add_log("lud is " .. lud) end
-  
-  
   if sst then add_log("Connected!") end
-  if sst then add_log("sst is " .. sst) end
-  if delta then add_log("delta is " .. delta) end
-  if delta2 then add_log("delta2 is " .. delta2) end
-  if delta3 then add_log("delta3 is " .. delta3) end
-  if nsk then add_log("nsk is " .. nsk) end
+  if log_enabled then
+    if alpha_s and alpha_s[1] then add_log("alpha is " .. alpha_s[1]) end
+    if gc then add_log("gc is " .. gc) end
+    if sc then add_log("sc is " .. sc) end
+    if wfc then add_log("wfc is " .. wfc) end
+    if lud then add_log("lud is " .. lud) end  
+    if sst then add_log("sst is " .. sst) end
+    if delta then add_log("delta is " .. delta) end
+    if delta2 then add_log("delta2 is " .. delta2) end
+    if delta3 then add_log("delta3 is " .. delta3) end
+    if nsk then add_log("nsk is " .. nsk) end
+  end
+  
   use_font("log")
   print_log()
   
@@ -77,6 +80,8 @@ function init_controls()
   register_btn("mouse_y", 0, input_id("mouse_position", "y"))
   
   register_btn("c", 0,  input_id("mouse_button", "lb"))
+  -- register_btn("enable_log", 0,  input_id("mouse_button", "lb"))
+  register_btn("enable_log", 0,  input_id("keyboard", "l"))
   
 end
 
