@@ -51,12 +51,12 @@ function server.update()
       update_data_timer = 3
       
       network.async(function()
-        last_updated = get_time()
         refreshing_data = true
         server_keys = castle.storage.getGlobal('server_keys') or {}
         global_count = castle.storage.getGlobal('global_key') or 0
-        
         my_meter = castle.storage.getGlobal(server_key) or 0
+        
+        last_updated = get_time()
         
         if my_meter == 0 then
           send_clicks = send_clicks + waiting_for_conf
