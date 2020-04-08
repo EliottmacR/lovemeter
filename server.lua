@@ -39,28 +39,29 @@ function server.update()
   
   update_data_timer = update_data_timer - dt()
   
-  if update_data_timer < 0 and not refreshing_data then
-    update_data_timer = 3
-    
-    network.async(function()
-      refreshing_data = true
-      server_keys = castle.storage.getGlobal('server_keys') or {}
-      global_meter = castle.storage.getGlobal('global_key') or 0
-      
-      my_meter = (server_key and castle.storage.getGlobal(server_key) or 0)
-      
-      if my_meter == 0 then
-        since_startup_server_count = since_startup_server_count + server_count
-      end
-      
-      
-      refreshing_data = false
-    end)
-    
-    
-  end
-  
   if server_key then
+  
+    if update_data_timer < 0 and not refreshing_data then
+      update_data_timer = 3
+      
+      network.async(function()
+        refreshing_data = true
+        server_keys = castle.storage.getGlobal('server_keys') or {}
+        global_meter = castle.storage.getGlobal('global_key') or 0
+        
+        my_meter = (server_key and castle.storage.getGlobal(server_key) or 0)
+        
+        if my_meter == 0 then
+          since_startup_server_count = since_startup_server_count + server_count
+        end
+        
+        
+        refreshing_data = false
+      end)
+      
+      
+    end
+  
     if server_state == "alphaornot" then
     
       if not doingalphaornot then
