@@ -42,48 +42,48 @@ function server.update()
   if server_key then
   
     if update_data_timer < 0 and not refreshing_data then
-      update_data_timer = 3
+      -- update_data_timer = 3
       
-      network.async(function()
-        refreshing_data = true
-        server_keys = castle.storage.getGlobal('server_keys') or {}
-        global_meter = castle.storage.getGlobal('global_key') or 0
+      -- network.async(function()
+        -- refreshing_data = true
+        -- server_keys = castle.storage.getGlobal('server_keys') or {}
+        -- global_meter = castle.storage.getGlobal('global_key') or 0
         
-        my_meter = (server_key and castle.storage.getGlobal(server_key) or 0)
+        -- my_meter = (server_key and castle.storage.getGlobal(server_key) or 0)
         
-        if my_meter == 0 then
-          since_startup_server_count = since_startup_server_count + server_count
-        end
+        -- if my_meter == 0 then
+          -- since_startup_server_count = since_startup_server_count + server_count
+        -- end
         
         
-        refreshing_data = false
-      end)
+        -- refreshing_data = false
+      -- end)
       
       
     end
   
     if server_state == "alphaornot" then
     
-      if not doingalphaornot then
-        network.async(function()
-          doingalphaornot = true
-          server_keys = castle.storage.getGlobal('server_keys') or {}
-          alpha_server = castle.storage.getGlobal("alpha")
+      -- if not doingalphaornot then
+        -- network.async(function()
+          -- doingalphaornot = true
+          -- server_keys = castle.storage.getGlobal('server_keys') or {}
+          -- alpha_server = castle.storage.getGlobal("alpha")
           
-          if not alpha_server or
-             not alpha_server[1] or 
-             not alpha_server[2] or 
-             too_old(alpha_server[2]) or 
-             not is_in(alpha_server[1], server_keys)
-          then 
-            castle.storage.setGlobal("alpha", {server_key, get_time()})
-          end
+          -- if not alpha_server or
+             -- not alpha_server[1] or 
+             -- not alpha_server[2] or 
+             -- too_old(alpha_server[2]) or 
+             -- not is_in(alpha_server[1], server_keys)
+          -- then 
+            -- castle.storage.setGlobal("alpha", {server_key, get_time()})
+          -- end
           
-          server_state = "setcount"
-          wait_time = WAIT_TIME_SETCOUNT
-          doingalphaornot = false
-        end)
-      end
+          -- server_state = "setcount"
+          -- wait_time = WAIT_TIME_SETCOUNT
+          -- doingalphaornot = false
+        -- end)
+      -- end
       
     elseif server_state == "setcount" then
       wait_time = wait_time - dt()
