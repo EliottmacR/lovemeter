@@ -37,7 +37,7 @@ waiting_for_conf = 0
 not_send = 0
 send_clicks = 0
 
-clear_sks = true
+-- clear_sks = true
 
 function server.update()
   if not initialized then return end
@@ -56,11 +56,25 @@ function server.update()
         network.async(function()
           doingalphaornot = true
           server_keys = get_server_keys() or {}
-          if clear_sks then
-            clear_sks = false
-            server_keys = {server_key}      
-            castle.storage.setGlobal("server_keys", server_keys)      
+          -- if clear_sks then
+            -- clear_sks = false
+            -- server_keys = {server_key}      
+            -- castle.storage.setGlobal("server_keys", server_keys)      
+          -- end
+          
+          -- check if key is in server_keys
+          found = false 
+          for i, v in pairs(server_keys) do  
+            if v == server_key then 
+              found = true 
+            end
           end
+            
+          if not found then
+            add(server_keys, server_key)
+            castle.storage.setGlobal('server_keys', server_keys)
+          end
+          
           num_server_keys = count(server_keys)
           alpha_server = get_alpha_server()
           
