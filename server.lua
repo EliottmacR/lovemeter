@@ -143,7 +143,7 @@ function server.update()
           
           -- server_state = "alphaornot"
           -- doingiamthealpha = false
-        end)
+        -- end)
         
       end  
     end  
