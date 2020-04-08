@@ -87,7 +87,7 @@ function server.update()
         if not doingsetcount then
           network.async(function ()
             doingsetcount = true
-            local old_count = get_server_keys()
+            local old_count = castle.storage.getGlobal(server_key)
             global_count = castle.storage.getGlobal('global_key') or 0
             
             if old_count == 0 then     
