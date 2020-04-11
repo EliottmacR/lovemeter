@@ -25,7 +25,7 @@ function update_heart()
   heart.clicked = btnp("c") and heart.hover 
   
   if heart.clicked then 
-    lm.client_count = lm.client_count + 1 
+    lc.client_count = lc.client_count + 1 
   end
   
   -- add_log("my_count_server_side : " .. (my_count_server_side or "nil") )
