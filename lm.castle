@@ -9,3 +9,4 @@ draft: true
 multiplayer:
   enabled: true
   serverMain: server.lua
+description: To click is to love and everyone shares the clicks.
