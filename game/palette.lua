@@ -51,6 +51,11 @@ function init_palette()
   -- add_color(0xf7a047, "brown2"  )
   -- add_color(0x5d3e1f, "brown3"  )
   
+  add_color(0xff2674, "hp1")
+  add_color(0xf56398, "hp2")
+  add_color(0xfc7aa8, "hp3")
+  add_color(0xf9a1c0, "hp4")
+  
   use_palette(_sugar_palette)
   
 end
