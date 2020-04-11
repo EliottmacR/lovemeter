@@ -124,7 +124,7 @@ do -- client
     end
     
     if client.share[2] then
-      lm.server_count = client.share[2][my_id] or lm.server_count
+      lc.server_count = client.share[2][my_id] or lc.server_count
     end
         
     _SK = client.share[3] or _SK
@@ -147,7 +147,7 @@ do -- client
   
       client.home[1] = t()
       
-      client.home[2] = lm.client_count
+      client.home[2] = lc.client_count
       
   end
   
