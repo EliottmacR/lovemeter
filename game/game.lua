@@ -13,7 +13,8 @@ function init_game()
     init_fonts()
     init_palette()
     
-    load_png("spr_sheet", "game/assets/spr_sheet.png", nil, true) 
+    heartpng = load_png("heart", "game/assets/heart.png", nil, true) 
+    -- load_png("spr_sheet", "game/assets/spr_sheet.png", nil, true) 
     -- click_s1 = load_sfx("game/assets/pizza.mp3", nil, 1)
     
     -- bdc = load_music ("game/assets/big_d_ck.mp3", nil, .1)

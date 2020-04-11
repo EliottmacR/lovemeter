@@ -11,6 +11,15 @@ function init_palette()
   add_color(0x000000, "pblack" )
   
   add_color(0x16171a, "black"  )
+  add_color(0xfafdff, "white"  )
+  
+  add_color(0xff2674, "hp1")
+  add_color(0xf56398, "hp2")
+  add_color(0xfc7aa8, "hp3")
+  add_color(0xf9a1c0, "hp4")
+  
+  add_color(0xff80a4, "ppink"  )
+  
   -- add_color(0x7f0622, "red"    )
   -- add_color(0xd62411, "dorange")
   -- add_color(0xff8426, "orange" )  
@@ -22,9 +31,6 @@ function init_palette()
   -- add_color(0xd2b34a, "champi1" )
   -- add_color(0xd28f4a, "champi2" )
   
-  add_color(0xfafdff, "white"  )
-  add_color(0xff80a4, "ppink"  )
-  add_color(0xff2674, "pink"   )
   -- add_color(0x94216a, "purple" )
   -- add_color(0x430067, "dblue"  )
   
@@ -50,11 +56,6 @@ function init_palette()
   -- add_color(0xb67a3c, "brown1"  )
   -- add_color(0xf7a047, "brown2"  )
   -- add_color(0x5d3e1f, "brown3"  )
-  
-  add_color(0xff2674, "hp1")
-  add_color(0xf56398, "hp2")
-  add_color(0xfc7aa8, "hp3")
-  add_color(0xf9a1c0, "hp4")
   
   use_palette(_sugar_palette)
   
