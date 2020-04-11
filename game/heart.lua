@@ -32,8 +32,10 @@ function update_heart()
 end
 
 function draw_heart()
-  -- rctf(heart.x, heart.y, heart.w, heart.h, heart_clr())  
   rctf(heart.x, heart.y, heart.w, heart.h, heart_clr())  
+  
+  spr_sheet (heartpng, heart.x, heart.y)
+  
 end
 
 
