@@ -34,8 +34,11 @@ end
 function draw_heart()
   rctf(heart.x, heart.y, heart.w, heart.h, heart_clr())  
   
-  spr_sheet (heartpng, heart.x, heart.y)
+  spritesheet(heartpng)
+  spritesheet_grid ( heart.w, heart.h)
   
+  -- spr_sheet (heartpng, heart.x, heart.y)
+  aspr (0, heart.x, heart.y, 0, 1, 1, 0, 0 )
 end
 
 
