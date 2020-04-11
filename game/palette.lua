@@ -8,17 +8,24 @@ function init_palette()
   _sugar_palette = {}
   _palette = {}
   
-  add_color(0x000000, "pblack" )
+  add_color(0x000000, "pblack")
   
-  add_color(0x16171a, "black"  )
-  add_color(0xfafdff, "white"  )
+  add_color(0x16171a, "black")
+  add_color(0xfafdff, "white")
   
+  add_color(0xc9819a, "hp0")
   add_color(0xff2674, "hp1")
   add_color(0xf56398, "hp2")
   add_color(0xfc7aa8, "hp3")
   add_color(0xf9a1c0, "hp4")
   
-  add_color(0xff80a4, "ppink"  )
+  add_color(0xff80a4, "ppink")
+  
+  add_color(0x45283c, "dpurple")
+  add_color(0x59334d, "dpurple2")
+  
+  add_color(0x28262b, "bg1")
+  add_color(0x16171a, "bg2")
   
   -- add_color(0x7f0622, "red"    )
   -- add_color(0xd62411, "dorange")

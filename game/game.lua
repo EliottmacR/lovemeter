@@ -1,7 +1,7 @@
 
 require("game/heart")  -- where all the fun happens
 require("game/love_counter")  -- where all the fun happens
-background_clr = "black"
+background_clr = "dpurple"
 
 function init_game()
   
@@ -14,6 +14,8 @@ function init_game()
     init_palette()
     
     heartpng = load_png("heart", "game/assets/heart.png", nil, true) 
+    bgpng = load_png("bg", "game/assets/background.png", nil, true)
+    
     -- load_png("spr_sheet", "game/assets/spr_sheet.png", nil, true) 
     -- click_s1 = load_sfx("game/assets/pizza.mp3", nil, 1)
     
@@ -42,9 +44,8 @@ function update_game()
 end
 
 function draw_game()
-  
-  cls(_p_n(background_clr))
-  
+    
+  draw_background()
   draw_heart()
   draw_love_counter()
   
@@ -57,6 +58,19 @@ function draw_game()
   
 end
 
+function draw_background()
+  local w = 32
+  
+  spritesheet(bgpng)
+  spritesheet_grid ( w, w)
+  
+  for j = 1, ceil(GH/w) do
+    for i = 1, ceil(GW/w) do
+      aspr (0, (i-1) * w*2, (j-1) * w*2, 0, 1, 1, 0, 0, 2, 2)
+    end
+  end  
+end
+
 
 function init_controls()
 
@@ -67,6 +81,7 @@ function init_controls()
   register_btn("enable_logs", 0,  input_id("keyboard", "l"))
   
 end
+
 
 function init_fonts()
   

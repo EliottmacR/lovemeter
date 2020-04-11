@@ -26,28 +26,47 @@ function update_heart()
   
   if heart.clicked then 
     lc.client_count = lc.client_count + 1 
+    last_time_clicked = t()
   end
   
   -- add_log("my_count_server_side : " .. (my_count_server_side or "nil") )
 end
 
 function draw_heart()
-  rctf(heart.x, heart.y, heart.w, heart.h, heart_clr())  
-  
+
   spritesheet(heartpng)
   spritesheet_grid ( heart.w, heart.h)
+ 
+  local a = 1/40 * cos(t()/6)
   
-  -- spr_sheet (heartpng, heart.x, heart.y)
-  aspr (0, heart.x + heart.w/2 , 
-           heart.y + heart.h/2 ,
-           1/20 * cos(t()), 1, 1, .5, .5, 1 + .1 * cos(t()), 1 + .1 * cos(t()) )
+  local size = 1 * size_mult()
+  
+  aspr (0, heart.x + heart.w/2 , heart.y + heart.h/2 , a, 1, 1, .5, .5, size, size )
 end
 
 
-function heart_clr()
+function bg_clr()
 
-  if heart.clicked then return heart.clr3
-  elseif heart.hover then return heart.clr2
-  else return heart.clr1 end
+  if heart.clicked then return "dpurple2"
+  else return "dpurple" end
 
 end
+
+
+last_time_clicked = 0
+time_to_resize = .3
+
+function size_mult()  
+  if t() - last_time_clicked < time_to_resize then    
+    return .85 + .25 * min(1, (t() - last_time_clicked)/time_to_resize)
+  else
+    return 1
+  end  
+end
+
+
+
+
+
+
+
