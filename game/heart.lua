@@ -38,7 +38,7 @@ function draw_heart()
   spritesheet_grid ( heart.w, heart.h)
   
   -- spr_sheet (heartpng, heart.x, heart.y)
-  aspr (0, heart.x, heart.y, 0, 1, 1, 0, 0 )
+  aspr (0, heart.x, heart.y, 1/20 * cos(t()), 1, 1, 0, 0, 1 + .2 * cos(t()), 1 + .2 * cos(t()) )
 end
 
 
