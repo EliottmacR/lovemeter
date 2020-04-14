@@ -51,15 +51,15 @@ HEADERW = 13
 HEADERH = 22
 
 function draw_background_counter(sx, sy, strn) 
-
-  sspr(0, NUMH, HEADERW, HEADERH, sx - 3* SMULT, sy - 3* SMULT, HEADERW * SMULT, HEADERH * SMULT)
+  local sw, sh = HEADERW * SMULT, HEADERH * SMULT
+  local sx = sx - 3 * SMULT
+  local sy = sy - 3 * SMULT
   
+  sspr(0, NUMH, HEADERW, HEADERH, sx, sy, sw, sh)  
   for i = 1, strn - 2 do
-    sspr(15, NUMH, NUMW, HEADERH, sx - 3* SMULT + (HEADERW + (i-1) * NUMW) * SMULT, sy - 3* SMULT, NUMW * SMULT, HEADERH * SMULT)  
-  end
-  
-  sspr(27, NUMH, HEADERW, HEADERH, sx - 3 * SMULT + (HEADERW + (strn-2) * NUMW) * SMULT, sy - 3* SMULT, HEADERW * SMULT, HEADERH * SMULT)
-
+    sspr(15, NUMH, NUMW, HEADERH, sx + (HEADERW + (i-1) * NUMW) * SMULT, sy, NUMW * SMULT, sh)  
+  end  
+  sspr(27, NUMH, HEADERW, HEADERH, sx + (HEADERW + (strn-2) * NUMW) * SMULT, sy, sw, sh)
 end
 
 function count_to_str(count)

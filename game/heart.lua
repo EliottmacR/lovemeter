@@ -10,7 +10,7 @@ function init_heart()
   heart.h = 77
   
   heart.x = GW/2 - heart.w/2
-  heart.y = GH/5*2.2 - heart.h/2
+  heart.y = GH/2 - heart.h/2
   
   heart.spr = 0
   
