@@ -27,6 +27,8 @@ function init_palette()
   add_color(0x28262b, "bg1")
   add_color(0x16171a, "bg2")
   
+  add_color(0xa7a6a6, "bgc")
+  
   -- add_color(0x7f0622, "red"    )
   -- add_color(0xd62411, "dorange")
   -- add_color(0xff8426, "orange" )  
