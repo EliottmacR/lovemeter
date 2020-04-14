@@ -10,8 +10,9 @@ function init_love_counter()
   lc.client_count = 0
   lc.server_count = 0
   
-  numpng = load_png("numbers", "game/assets/numbers.png")
-
+  if not SERVER then
+    numpng = load_png("numbers", "game/assets/numbers.png")
+  end
 end
 
 function update_love_counter()  
