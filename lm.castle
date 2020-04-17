@@ -5,7 +5,6 @@ owner: spaceling
 primaryColor: f7cf4c
 dimensions: full
 coverImage: preview.png
-draft: true
 multiplayer:
   enabled: true
   serverMain: server.lua
